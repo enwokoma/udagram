@@ -13,6 +13,7 @@ log.txt
 npm-debug.log*
 set_env.sh
 
+.env
 .idea/
 .ionic/
 .sourcemaps/

@@ -1,26 +1,22 @@
-language: node_js
-node_js:
-  - 13
+language: android
 
-services:
-  - docker
+android:
+  components:
+    - platform-tools
+    - tools
 
-# Pre-testing installs
-install:
-  - echo "nothing needs to be installed"
+    - build-tools-28.0.3
+    - android-28
 
-# Scripts to be run such as tests
-before_script:
-  - echo "no tests running"
+    - extra-google-m2repository
+    - extra-android-m2repository
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
+jdk:
+  - oraclejdk8
 
 script:
-  - docker-compose --version # print the version for logging
-  - docker-compose build
-
-# Tasks to perform after the process is successful. Formatting the Docker username and password as below enables you to programmatically log in without having the password exposed in logs.
-after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push emmanuelnwokoma/udagram-api-feed
-  - docker push emmanuelnwokoma/udagram-api-users
-  - docker push emmanuelnwokoma/udagram-frontend
-  - docker push emmanuelnwokoma/udagram-reverse-proxy
+  - chmod +x ./gradlew

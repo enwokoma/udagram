@@ -17,7 +17,7 @@ spec:
       containers:
       - image: emmanuelnwokoma/udagram-reverse-proxy
         name: udagram-reverse-proxy
-        imagePullPolicy: Always          
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "64Mi"
